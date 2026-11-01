@@ -21,9 +21,9 @@ public abstract class Module {
     public boolean isEnabled() { return enabled; }
     public List<Setting<?>> getSettings() { return settings; }
 
-    protected <T> Setting<T> register(Setting<T> setting) {
-        settings.add(setting);
-        return setting;
+    protected <S extends Setting<?>> S register(S s) {
+        settings.add(s);
+        return s;
     }
 
     public void toggle() {
